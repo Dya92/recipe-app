@@ -14,7 +14,7 @@ public class Notes {
     private Recipe recipe;
 
     // 256 characters is the maximum of string in jpa and hibernate
-    //
+    // using @Lob to store a CLOB field
     @Lob
     private String recipeNotes;
 
