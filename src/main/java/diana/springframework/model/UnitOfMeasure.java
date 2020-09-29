@@ -3,6 +3,7 @@ package diana.springframework.model;
 import javax.persistence.*;
 
 @Entity
+// table name is UNIT_OF_MEASURE because of camelcases
 public class UnitOfMeasure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
