@@ -6,5 +6,17 @@
 </head>
 <body>
     <h1>Recipe Page</h1>
+<table style="border:solid 1px black">
+    <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Directions</th>
+    </tr>
+    <tr th:each="recipe: ${recipes}">
+        <td th:text="${recipe.getId()}" style="border:solid 1px black">this is the id</td>
+        <td th:text="${recipe.getDescription()}" style="border:solid 1px black">this is the description</td>
+        <td th:text="${recipe.getDirections()}" style="border:solid 1px black">this are the directions</td>
+    </tr>
+</table>
 </body>
 </html>

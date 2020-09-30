@@ -1,6 +1,7 @@
 package diana.springframework.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -17,6 +18,8 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+
+    @Lob
     private String directions;
 
     // ORDINAL is default = it gets 1, 2 or 3 instead of string values(i.e. "EASY"...)
@@ -27,7 +30,8 @@ public class Recipe {
     // owning side
     // mappedby the property from the "child" class
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients = new HashSet<>();
+    //stated implementation to avoid null pointer error
 
     @Lob
     private Byte[] image;
@@ -38,7 +42,7 @@ public class Recipe {
     @ManyToMany
     @JoinTable(name = "recipe_category",
             joinColumns = @JoinColumn(name = "recipe_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private Set<Category> categories;
+    private Set<Category> categories = new HashSet<>();
 
     public Long getId() {
         return id;
