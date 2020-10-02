@@ -75,7 +75,7 @@
             </plugin>
 
             <!--maven runs anything that has Test in it and distinguishes between an Unit test and an Integration test-->
-            <!--maven surefire plugin runs the Unit test and the failsafe plugin runs the Integration test-->
+            <!--maven surefire plugin runs the Unit test(by default) and the failsafe plugin runs the Integration test-->
             <plugin>
                 <!--failsafe runs in the verify phase not the test phase-->
                 <!--maven-Lifecycle-verify => does unit test first, then IT tests-->
