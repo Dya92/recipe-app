@@ -1,5 +1,7 @@
 package diana.springframework.service;
 
+import diana.springframework.converter.RecipeCommandToRecipe;
+import diana.springframework.converter.RecipeToRecipeCommand;
 import diana.springframework.model.Recipe;
 import diana.springframework.repository.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,11 +23,18 @@ class RecipeServiceImplTest {
     @Mock
     RecipeRepository recipeRepository;
 
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+
     @BeforeEach
     void setUp() {
         //initialize a mock -> give me a mock recipe repository
         MockitoAnnotations.initMocks(this);
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository,recipeCommandToRecipe,recipeToRecipeCommand);
     }
 
     @Test
