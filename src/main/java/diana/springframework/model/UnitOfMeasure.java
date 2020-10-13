@@ -4,7 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 // table name is UNIT_OF_MEASURE because of camelcases
 public class UnitOfMeasure {

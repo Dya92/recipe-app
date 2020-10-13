@@ -5,7 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 //excluding equals and hashcode for recipes because lombok has a problem with bidirectional relationships
 @EqualsAndHashCode(exclude = {"recipes"})
 @Entity
